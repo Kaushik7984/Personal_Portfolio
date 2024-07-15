@@ -13,9 +13,9 @@ const Navbar = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}>KT</motion.span>
         <div className="social">
-          <a href="#"><img src="./linkedin.png" alt="linkedin" /></a>
-          <a href="#"><img src="./github.png" alt="github" /></a>
-          <a href="#"><img src="./instagram.png" alt="instagram" /></a>
+          <a href="https://www.linkedin.com/in/kaushik-tapaniya-624142239/" target="_blank"><img src="./linkedin.png" alt="linkedin" /></a>
+          <a href="https://github.com/Kaushik7984" target="_blank"><img src="./github.png" alt="github" /></a>
+          <a href="https://www.instagram.com/kaushiiq_7x?igsh=bXdxYTNlNDN2cXk4" target="_blank"><img src="./instagram.png" alt="instagram" /></a>
         </div>
       </div>
     </div>
