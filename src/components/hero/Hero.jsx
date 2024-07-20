@@ -13,6 +13,7 @@ const textVariants = {
             duration: 1,
             staggerChildren: 0.1,
         },
+        
     },
     scrollButton: {
         opacity: 0,
@@ -23,6 +24,7 @@ const textVariants = {
         }
     },
 }
+
 const sliderVariants = {
     initial: {
         x: 0,
@@ -38,6 +40,28 @@ const sliderVariants = {
     },
 }
 
+const imageVariants = {
+    initial: {
+        opacity: 0,
+        scale: 0.8,
+    },
+    animate: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            duration: 1,
+            ease: "easeInOut"
+        }
+    },
+    hover: {
+        scale: 1.05,
+        transition: {
+            duration: 0.5,
+            yoyo: Infinity
+        }
+    }
+}
+
 const Hero = () => {
     return (
         <div className='hero'>
@@ -47,7 +71,7 @@ const Hero = () => {
                     <motion.h1 variants={textVariants}>Frontend Developer</motion.h1>
                     <motion.div variants={textVariants} className="buttons">
                         <motion.button variants={textVariants}>
-                           <a href="#Portfolio"> See the Latest Works</a>
+                            <a href="#Portfolio"> See the Latest Works</a>
                         </motion.button>
                         <motion.button variants={textVariants}> <a href="#Contact">Contact Me</a> </motion.button>
                     </motion.div>
@@ -58,7 +82,14 @@ const Hero = () => {
                 Javascript ReactJs
             </motion.div>
             <div className="imageContainer">
-                <img src="/her.png" alt="" />
+                <motion.img 
+                    src="/hero1.png" 
+                    alt="emotional person" 
+                    variants={imageVariants}
+                    initial="initial"
+                    animate="animate"
+                    whileHover="hover"
+                />
             </div>
         </div >
     )
