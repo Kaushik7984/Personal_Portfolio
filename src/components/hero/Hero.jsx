@@ -23,6 +23,15 @@ const textVariants = {
             repeat: Infinity
         }
     },
+    hover: {
+        scale: 1.03,
+        y:20 ,
+        
+        transition: {
+            duration: 0.5,
+            yoyo: Infinity
+        }
+    }
 }
 
 const sliderVariants = {
@@ -38,6 +47,7 @@ const sliderVariants = {
             duration: 20,
         },
     },
+    
 }
 
 const imageVariants = {
@@ -55,6 +65,7 @@ const imageVariants = {
     },
     hover: {
         scale: 1.05,
+        x:200,
         transition: {
             duration: 0.5,
             yoyo: Infinity
@@ -62,19 +73,18 @@ const imageVariants = {
     }
 }
 
+
+
 const Hero = () => {
     return (
         <div className='hero'>
             <div className="wrapper">
                 <motion.div className="textContainer" variants={textVariants} initial='initial' animate='animate'>
-                    <motion.h2 variants={textVariants}>Kaushik Tapaniya</motion.h2>
+                    <motion.h2 className='im' variants={textVariants}>I'm</motion.h2>
+                    <motion.h2 className='name' variants={textVariants} whileHover="hover">Kaushik Tapaniya</motion.h2>
                     <motion.h1 variants={textVariants}>Frontend Developer</motion.h1>
-                    <motion.div variants={textVariants} className="buttons">
-                        <motion.button variants={textVariants}>
-                            <a href="#Portfolio"> See the Latest Works</a>
-                        </motion.button>
-                        <motion.button variants={textVariants}> <a href="#Contact">Contact Me</a> </motion.button>
-                    </motion.div>
+                    <motion.h3 variants={textVariants}>Experienced Web Developer proficient in JavaScript, ReactJS, HTML, and CSS, seeking opportunities to create
+                    cutting-edge web applications with a focus on user experience and innovation.”</motion.h3>
                     <motion.img variants={textVariants} animate="scrollButton" src="/scroll.png" alt="scroll" />
                 </motion.div>
             </div >
@@ -84,7 +94,7 @@ const Hero = () => {
             <div className="imageContainer">
                 <motion.img 
                     src="/hero1.png" 
-                    alt="emotional person" 
+                    alt="Hero" 
                     variants={imageVariants}
                     initial="initial"
                     animate="animate"
