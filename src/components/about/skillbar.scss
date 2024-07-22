@@ -1,86 +1,92 @@
-@import "../../app.scss" ;
+@import "../../app.scss";
 
 .skills {
-   padding: 2rem;
-   // background-color: #f4f4f409;
-   border-radius: 10px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   width: 100%;
- 
-   .skills-header {
-     font-size: 2rem;
-     text-align: center;
-     margin-bottom: 1.5rem;
-   }
- 
-   .skills-container {
-     display: flex;
-     flex-direction: column;
-     gap: 1rem;
+  padding: 2rem;
+  // background-color: #f4f4f409;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
 
-     @include mobile{
+  .skills-header {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+   
+
+    @include mobile {
       gap: 0.5rem;
-     }
-   }
- 
-   .skill-container {
-     display: flex;
-     align-items: center;
-     gap: 1rem;
-     background-color: #f8f8f805;
-     padding: 1rem;
-     border-radius: 5px;
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
- 
-     p {
-       flex: 1;
-       font-size: 1.2rem;
-       font-weight: 500;
-     }
- 
-     .bar {
-       flex: 2;
-       height: 10px;
-       background-color: #e0e0e0;
-       border-radius: 5px;
-       overflow: hidden;
- 
-       span {
-         display: block;
-         height: 100%;
-         border-radius: 5px;
-       }
- 
-       .html {
-         width: 90%;
-         background-color: #e44d26;
-       }
- 
-       .css {
-         width: 90%;
-         background-color: #264de4;
-       }
- 
-       .javascript {
-         width: 80%;
-         background-color: #f0db4f;
-       }
- 
-       .reactjs {
-         width: 70%;
-         background-color: #00c8ff;
-       }
- 
-       .reduxjs {
-         width: 50%;
-         background-color: #764abc;
-       }
+      max-height: 300px; 
+      overflow-y: auto; 
+    }
+  }
 
-       .nextjs {
-         width: 50%;
-         background-color: #222322;
-       }
-     }
-   }
- }
- 
+  .skill-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f8f8f805;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    p {
+      flex: 1;
+      font-size: 1.2rem;
+      font-weight: 500;
+
+      @include mobile {
+        font-size: 1rem;
+      }
+    }
+
+    .bar {
+      flex: 2;
+      height: 10px;
+      background-color: #e0e0e0;
+      border-radius: 5px;
+      overflow: hidden;
+
+      span {
+        display: block;
+        height: 100%;
+        border-radius: 5px;
+      }
+
+      .html {
+        width: 90%;
+        background-color: #e44d26;
+      }
+
+      .css {
+        width: 90%;
+        background-color: #264de4;
+      }
+
+      .javascript {
+        width: 80%;
+        background-color: #f0db4f;
+      }
+
+      .reactjs {
+        width: 70%;
+        background-color: #00c8ff;
+      }
+
+      .reduxjs {
+        width: 50%;
+        background-color: #764abc;
+      }
+
+      .nextjs {
+        width: 50%;
+        background-color: #222322;
+      }
+    }
+  }
+}
