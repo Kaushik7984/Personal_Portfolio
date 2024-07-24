@@ -60,21 +60,21 @@ const About = () => {
 
             <div className="wrapper">
                 <motion.div className="textContainer" variants={textVariants} initial='initial' animate='animate'>
-                <motion.h1 variants={textVariants}>Hi, I'm</motion.h1>
-                <motion.h1 variants={textVariants}>Kaushik Tapaniya</motion.h1>
+                    <motion.h1 variants={textVariants}>Hi, I'm</motion.h1>
+                    <motion.h1 variants={textVariants}>Kaushik Tapaniya</motion.h1>
                     <motion.h2 variants={textVariants}>Welcome to my portfolio website, Experience a dynamic and visually stunning portfolio built with ReactJS. Enjoy smooth, engaging animations powered by Framer Motion and a modern design crafted with SCSS.</motion.h2>
-                
+
                     <motion.div variants={textVariants} className="buttons">
-                        <motion.button variants={textVariants}>
-                            <a href="/Resume_Kaushik.pdf" download="Resume_Kaushik.pdf"> Download my Resume</a>
-                        </motion.button>
-                        <motion.button variants={textVariants}> <a href="#Contact">Contact Me</a> </motion.button>
+                        <a href="/Resume_Kaushik.pdf" download="Resume_Kaushik.pdf"> <motion.button variants={textVariants}>
+                            Download my Resume
+                        </motion.button></a>
+                        <a href="#Contact"><motion.button variants={textVariants}> Contact Me </motion.button></a>
                     </motion.div>
                 </motion.div>
 
                 <motion.div className='skill'>
-                        < Skillbar />
-                    </motion.div>
+                    < Skillbar />
+                </motion.div>
             </div >
 
 

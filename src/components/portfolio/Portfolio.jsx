@@ -54,7 +54,7 @@ const Single = ({ item }) => {
                     <motion.div className="textContainer" style={{y}}>
                         <h2 >{item.title}</h2>
                         <p>{item.desc}</p>
-                        <button><a href={item.link} target='_blank'>See Demo</a> </button>
+                        <a href={item.link} target='_blank'><button>See Demo</button></a> 
                     </motion.div>
                 </div>
 
