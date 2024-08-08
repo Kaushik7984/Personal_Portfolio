@@ -99,6 +99,7 @@ const Hero = () => {
                     initial="initial"
                     animate="animate"
                     whileHover="hover"
+                    // whileHover="hover"
                 />
             </div>
         </div >
