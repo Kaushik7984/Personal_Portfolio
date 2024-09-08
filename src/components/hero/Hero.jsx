@@ -82,9 +82,8 @@ const Hero = () => {
                 <motion.div className="textContainer" variants={textVariants} initial='initial' animate='animate'>
                     <motion.h2 className='im' variants={textVariants}>I'm</motion.h2>
                     <motion.h2 className='name' variants={textVariants} whileHover="hover">Kaushik Tapaniya</motion.h2>
-                    <motion.h1 variants={textVariants}>Frontend Developer</motion.h1>
-                    <motion.h3 variants={textVariants}>Experienced Web Developer proficient in JavaScript, ReactJS, HTML, and CSS, seeking opportunities to create
-                    cutting-edge web applications with a focus on user experience and innovation.”</motion.h3>
+                    <motion.h1 variants={textVariants}>a Web Developer</motion.h1>
+                    <motion.h3 variants={textVariants}>As a full-stack developer specializing in the MERN stack, I create dynamic, scalable applications that blend functionality with intuitive design for optimal user engagement.</motion.h3>
                     <motion.img variants={textVariants} animate="scrollButton" src="/scroll.png" alt="scroll" />
                 </motion.div>
             </div >

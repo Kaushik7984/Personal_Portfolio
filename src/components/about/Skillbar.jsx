@@ -7,8 +7,11 @@ const skills = [
   { name: 'CSS', percentage: '80%' },
   { name: 'JavaScript', percentage: '80%' },
   { name: 'ReactJS', percentage: '78%' },
-  { name: 'ReduxJS', percentage: '50%' },
-  { name: 'NextJS', percentage: '50%' },
+  // { name: 'ReduxJS', percentage: '50%' },
+  // { name: 'NextJS', percentage: '50%' },
+  { name: 'NodeJs', percentage: '70%' },
+  { name: 'ExpressJs', percentage: '70%' },
+  { name: 'MongoDB', percentage: '50%' },
 ];
 
 const Skillbar = () => {
