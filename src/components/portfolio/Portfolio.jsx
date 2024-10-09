@@ -7,7 +7,7 @@ const items = [
         id: 1,
         title: "Event Management",
         img: "/event.png",
-        desc: "Created Event Management App using ReactJS and React Router. Easily add, edit, and delete events with seamless navigation and a user-friendly interface.",
+        desc: "Created Event Management App using ReactJS and React Router for Frontend and NodeJs, ExpressJs for Backend and Database like MongoDB. Easily add, edit, and delete events with seamless navigation and a user-friendly interface.",
         link:"https://event-management-react-app-nu.vercel.app/"
     },
     {

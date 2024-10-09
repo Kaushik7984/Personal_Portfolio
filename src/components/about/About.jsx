@@ -65,7 +65,7 @@ const About = () => {
                     <motion.h2 variants={textVariants}>Welcome to my portfolio website, Experience a dynamic and visually stunning portfolio built with ReactJS. Enjoy smooth, engaging animations powered by Framer Motion and a modern design crafted with SCSS.</motion.h2>
 
                     <motion.div variants={textVariants} className="buttons">
-                        <a href="/Resume_Kaushik.pdf" download="Resume_Kaushik.pdf"> <motion.button variants={textVariants}>
+                        <a href="/Resume-Kaushik.pdf" download="Resume-Kaushik.pdf"> <motion.button variants={textVariants}>
                             Download my Resume
                         </motion.button></a>
                         <a href="#Contact"><motion.button variants={textVariants}> Contact Me </motion.button></a>
