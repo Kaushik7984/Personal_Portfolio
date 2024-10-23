@@ -5,41 +5,48 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
 const items = [
     {
         id: 1,
+        title: "E-commerce",
+        img: "/ecommerce.png",
+        desc: "The Full Stack eCommerce Website, built with the MERN stack, offers a complete shopping experience with product browsing, cart management, and secure checkout. It features user authentication and order tracking, providing a seamless and responsive experience across devices.",
+        link:"https://github.com/Kaushik7984/Ecommerce"
+    },
+    {
+        id: 2,
         title: "Event Management",
         img: "/event.png",
         desc: "Created Event Management App using ReactJS and React Router for Frontend and NodeJs, ExpressJs for Backend and Database like MongoDB. Easily add, edit, and delete events with seamless navigation and a user-friendly interface.",
         link:"https://event-management-react-app-nu.vercel.app/"
     },
     {
-        id: 2,
+        id: 3,
         title: "Expense Tracker",
         img: "/expense.png",
         desc: "The Expense Tracker app is a user-friendly tool built with ReactJS for managing personal finances. It allows users to add, edit, and delete expenses, categorize spending, and visualize data through dynamic charts. With a clean, responsive design, it offers an intuitive way to track and optimize expenses across different devices",
         link:"https://expense-tracker-brown-omega.vercel.app/"
     },
     {
-        id: 3,
+        id: 4,
         title: "Food Odering App.",
         img: "/foodOrder1.png",
         desc: "Built a React project where users can browse yummy food items, add them to their cart, and easily check out.Showcased integration of frontend with backend server using HTTP POST requests.",
         link:"https://food-odering-app-react.vercel.app/"
     },
     {
-        id: 4,
+        id: 5,
         title: "Quiz App",
         img: "/quizApp1.png",
         desc: "Designed a Quiz app using React to practice important concepts like Side Effects, Reducers, and Context API.",
         link:"https://quiz-app-livid-rho.vercel.app/"
     },
     {
-        id: 5,
+        id: 6,
         title: "Next App",
         img: "/nextApp1.png",
         desc: "This Food Ordering App is a modern web application built with React.js and Next.js, designed to provide a seamless and intuitive food ordering experience.",
         link:"https://food-odering-next-app.vercel.app/"
     },
     {
-        id: 6,
+        id: 7,
         title: "Personal Portfolio",
         img: "/portfolio.png",
         desc: "Developed a personal portfolio website using ReactJS for structure, SCSS for styling, and Framer Motion for animations.",
