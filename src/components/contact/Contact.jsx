@@ -1,8 +1,8 @@
-
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./contact.scss";
 import { motion, useInView } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const variants = {
     initial: {
@@ -22,13 +22,54 @@ const variants = {
 const Contact = () => {
     const ref = useRef();
     const formRef = useRef();
-    const [error, setError] = useState(false);
-    const [success, setSuccess] = useState(false);
+    const svgRef = useRef();
+    const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+    const [errors, setErrors] = useState({});
+    const [loading, setLoading] = useState(false);
+    const [isFormValid, setIsFormValid] = useState(false);
 
     const isInView = useInView(ref, { margin: "-100px" });
 
+    const validate = () => {
+        const validationErrors = {};
+        if (!formData.name.trim()) {
+            validationErrors.name = "Name is required!";
+        } else if (formData.name.length < 3) {
+            validationErrors.name = "Name must be at least 3 characters long.";
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!formData.email.trim()) {
+            validationErrors.email = "Email is required!";
+        } else if (!emailRegex.test(formData.email)) {
+            validationErrors.email = "Invalid email format.";
+        }
+
+        if (!formData.message.trim()) {
+            validationErrors.message = "Message is required!";
+        } else if (formData.message.length < 10) {
+            validationErrors.message = "Message must be at least 10 characters.";
+        }
+
+        return validationErrors;
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+
+        // Validate on every input change and update form validity
+        const validationErrors = validate();
+        setErrors(validationErrors);
+        setIsFormValid(Object.keys(validationErrors).length === 0);
+    };
+
     const sendEmail = (e) => {
         e.preventDefault();
+
+        if (!isFormValid) return;
+
+        setLoading(true);
 
         emailjs
             .sendForm(
@@ -38,14 +79,64 @@ const Contact = () => {
                 "Ue-cEiX8Sniudcpuc"
             )
             .then(
-                (result) => {
-                    setSuccess(true)
+                () => {
+                    setLoading(false);
+                    setFormData({ name: "", email: "", message: "" });
+                    setIsFormValid(false);
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Message Sent!",
+                        text: "Your message has been successfully sent. We'll get back to you soon!",
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                    });
                 },
-                (error) => {
-                    setError(true);
+                () => {
+                    setLoading(false);
+
+                    Swal.fire({
+                        icon: "error",
+                        title: "Message Failed!",
+                        text: "There was an error sending your message. Please try again later.",
+                        toast: true,
+                        position: "top-end",
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                    });
                 }
             );
     };
+
+    useEffect(() => {
+        const disableActions = (e) => {
+            if (e.type === "contextmenu") e.preventDefault();
+            if (
+                e.type === "keydown" &&
+                (e.key === "F12" || (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J" || e.key === "C")) || e.ctrlKey && e.key === "U")
+            ) {
+                e.preventDefault();
+            }
+        };
+
+        const disableTextSelection = (e) => e.preventDefault();
+
+        document.addEventListener("contextmenu", disableActions);
+        document.addEventListener("keydown", disableActions);
+        document.addEventListener("selectstart", disableTextSelection);
+        document.addEventListener("dragstart", disableTextSelection);
+
+        return () => {
+            document.removeEventListener("contextmenu", disableActions);
+            document.removeEventListener("keydown", disableActions);
+            document.removeEventListener("selectstart", disableTextSelection);
+            document.removeEventListener("dragstart", disableTextSelection);
+        };
+    }, []);
 
     return (
         <motion.div
@@ -59,11 +150,15 @@ const Contact = () => {
                 <motion.h1 variants={variants}>Let’s work together</motion.h1>
                 <motion.div className="item" variants={variants}>
                     <h2>Mail</h2>
-                    <span><a href="mailto:kaushik7984@gmail.com" target="_blank">kaushik7984@gmail.com</a></span>
+                    <span>
+                        <a href="mailto:kaushik7984@gmail.com" target="_blank" rel="noreferrer">
+                            kaushik7984@gmail.com
+                        </a>
+                    </span>
                 </motion.div>
                 <motion.div className="item" variants={variants}>
                     <h2>Address</h2>
-                    <span>Dared, Bhavnager</span>
+                    <span>Dared, Bhavnagar</span>
                 </motion.div>
                 <motion.div className="item" variants={variants}>
                     <h2>Phone</h2>
@@ -71,7 +166,7 @@ const Contact = () => {
                 </motion.div>
             </motion.div>
             <div className="formContainer">
-                <motion.div
+            <motion.div
                     className="phoneSvg"
                     initial={{ opacity: 1 }}
                     whileInView={{ opacity: 0 }}
@@ -107,12 +202,37 @@ const Contact = () => {
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 4, duration: 1 }}
                 >
-                    <input type="text" required placeholder="Name" name="name" />
-                    <input type="email" required placeholder="Email" name="email" />
-                    <textarea rows={8} placeholder="Message" name="message" />
-                    <button>Submit</button>
-                    {error && "Error"}
-                    {success && "Success"}
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                    />
+                    {errors.name && <span className="error">{errors.name}</span>}
+
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                    />
+                    {errors.email && <span className="error">{errors.email}</span>}
+
+                    <textarea
+                        name="message"
+                        rows={8}
+                        placeholder="Message"
+                        required
+                        value={formData.message}
+                        onChange={handleInputChange}
+                    />
+                    {errors.message && <span className="error">{errors.message}</span>}
+
+                    <button disabled={!isFormValid || loading}>
+                        {loading ? "Sending..." : "Submit"}
+                    </button>
                 </motion.form>
             </div>
         </motion.div>

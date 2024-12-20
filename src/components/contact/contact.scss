@@ -100,6 +100,9 @@
         background-color: orange;
         cursor: pointer;
         font-weight: 500;
+        &:disabled {
+          cursor: not-allowed;
+      }
         
         @include mobile {
           padding: 10px;
